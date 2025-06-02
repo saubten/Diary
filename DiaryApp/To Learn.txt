@@ -12,3 +12,8 @@ Securing Endpoints
 	-Authorization
 	-Encryption
 
+
+
+Check when the Server side Validation is used ??
+Model State ??
+
