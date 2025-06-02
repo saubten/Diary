@@ -23,5 +23,10 @@ namespace DiaryApp.Controllers
 
             return View(objDiaryEntryList); // objDiaryEntryList -> @model in the Index.csshtml of DiaryEntries
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }

@@ -1,0 +1,14 @@
+Restful API - CRUD
+Graph QL - Need to learn 
+SOAP - (XML based messaging) Need to learn
+
+Importance of Endpoints
+	-Data Access
+	-Interoperability
+	-Scalability
+
+Securing Endpoints
+	-Authentication
+	-Authorization
+	-Encryption
+
