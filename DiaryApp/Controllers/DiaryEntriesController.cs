@@ -43,5 +43,45 @@ namespace DiaryApp.Controllers
 
             return View(obj);
         }
+        [HttpGet]
+        public IActionResult Edit(int? id) 
+        {
+            if(id == null || id ==0)
+            {
+                return NotFound();
+            }
+
+            DiaryEntry? diaryEntry = _db.DiaryEntries.Find(id);
+
+            if (diaryEntry == null)
+            {
+                return NotFound();
+            }
+
+            return View(diaryEntry);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(DiaryEntry obj)//obj goes as the model to the view Edit
+        {
+            if (obj != null && obj.Title.Length < 3)
+            {
+                ModelState.AddModelError("Title", "Title too short brudda");// Server Side Validation
+            }
+            if (ModelState.IsValid)
+            {
+                _db.DiaryEntries.Update(obj);//Updates the Diary Entry in the Database
+                _db.SaveChanges();// Save the changes to the database
+                return RedirectToAction("Index");//After the Post Action it will send you back to the Index Page
+            }
+
+            return View(obj);
+        }
+
+        public IActionResult Delete(DiaryEntry obj)
+        {
+            return View();
+        }
+
     }
 }
